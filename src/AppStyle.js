@@ -9,7 +9,8 @@ const AppStyle = {
     height: 80,
     width: 80,
     borderRadius: 40,
-    border: '2px dashed black'
+    border: '2px dashed black',
+    cursor: 'pointer'
   }
 }
 

@@ -3,8 +3,13 @@ import CaixinhaStyle from './CaixinhaStyle';
 
 class Caixinha extends React.Component {
   render() {
+    const divStyle = {
+      ...CaixinhaStyle.Caixinha,
+      backgroundColor: this.props.cor
+    }
+
     return (
-      <div style={CaixinhaStyle.Caixinha}>
+      <div style={divStyle}>
         <input style={CaixinhaStyle.Input} type='text' placeholder='COLOR' />
       </div>
     );
