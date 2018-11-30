@@ -10,7 +10,7 @@ class Caixinha extends React.Component {
 
     return (
       <div style={divStyle}>
-        <input style={CaixinhaStyle.Input} type='text' placeholder='COLOR' />
+        <input onChange={this.props.atualizar} value={this.props.corInput} style={CaixinhaStyle.Input} type='text' placeholder='COLOR' />
       </div>
     );
   }

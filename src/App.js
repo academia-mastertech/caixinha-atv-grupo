@@ -6,13 +6,20 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      cor: ''
+      corAtual: '',
+      corInput: ''
     }
   }
 
   trocarCor = event => {
     this.setState({
-      cor: 'blue'
+      corAtual: this.state.corInput
+    });
+  }
+
+  atualizarCorInput = event => {
+    this.setState({
+      corInput: event.target.value
     });
   }
 
@@ -22,7 +29,7 @@ class App extends React.Component {
       <div style={AppStyle.AppDiv}>
         <h1>Caixinhas para colorir</h1>
         <button style={AppStyle.Button} onClick={this.trocarCor}>COLORIR! eeeee</button>
-        <Caixinha cor={this.state.cor} />
+        <Caixinha cor={this.state.corAtual} atualizar={this.atualizarCorInput} corInput={this.state.corInput} />
       </div>
     )
     
