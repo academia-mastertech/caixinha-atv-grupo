@@ -11,6 +11,7 @@ const CaixinhaStyle = {
   Input:{
     border: '1px solid black',
     borderRadius: 5
+    
   }
 }
 

@@ -1,14 +1,17 @@
 import React from 'react';
 import Caixinha from './Components/Caixinha/Caixinha';
 import AppStyle from './AppStyle';
+import "./index.css"
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       corAtual: '',
-      corInput: ''
+      corInput: '',
+      caixa:[]
     }
+    this.caixa=[<Caixinha cor={this.state.corAtual} atualizar={this.atualizarCorInput} corInput={this.state.corInput} />];
   }
 
   trocarCor = event => {
@@ -17,19 +20,36 @@ class App extends React.Component {
     });
   }
 
+  adicionar = event =>{
+    this.caixa.push( <Caixinha cor={this.state.corAtual} atualizar={this.atualizarCorInput} corInput={this.state.corInput} />)
+    this.setState({
+      caixa: this.caixa
+    })
+  }
+
   atualizarCorInput = event => {
     this.setState({
       corInput: event.target.value
     });
   }
 
+  criarCaixinha(){
+    let lista=[];
+    for(let i=1;i<=this.caixa.length;i++){
+      lista.push(<Caixinha cor={this.state.corAtual} atualizar={this.atualizarCorInput} corInput={this.state.corInput} />);
+    }
+    return lista;
+  }
   render() {
     console.log(this.state)
     return (
       <div style={AppStyle.AppDiv}>
         <h1>Caixinhas para colorir</h1>
-        <button style={AppStyle.Button} onClick={this.trocarCor}>COLORIR! eeeee</button>
-        <Caixinha cor={this.state.corAtual} atualizar={this.atualizarCorInput} corInput={this.state.corInput} />
+        <div className="botoes">
+          <button style={AppStyle.Button} onClick={this.adicionar}>Adicionar Caixinha</button>
+          <button style={AppStyle.Button} onClick={this.trocarCor}>COLORIR! eeeee</button>
+        </div>
+          {this.criarCaixinha()} 
       </div>
     )
     

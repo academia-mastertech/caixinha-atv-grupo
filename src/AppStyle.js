@@ -10,7 +10,8 @@ const AppStyle = {
     width: 80,
     borderRadius: 40,
     border: '2px dashed black',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    display: 'inline'
   }
 }
 
